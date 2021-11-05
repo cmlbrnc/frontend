@@ -32,13 +32,13 @@ export class ShoppinCartComponent implements OnInit {
   }
 
   async clearCart() { 
-    //  this.auth.onTokenChange().subscribe( (r)=>{
+     this.auth.onTokenChange().subscribe( (r)=>{
      
-    //  this.cartservice.clearCart(r.getPayload().email);
+     this.cartservice.clearCart(r.getPayload().email);
     
-    // });
+    });
 
-    this.cartservice.clearCart('resr');
+  
   
     
 
