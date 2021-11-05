@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     quantity:0
   };
   items = [{ title: 'Profile' }, { title: 'Log out' }];
-
+ 
   constructor(
     private nbMenuService: NbMenuService,
     private authService: NbAuthService,
@@ -38,10 +38,10 @@ export class HomeComponent implements OnInit {
       .subscribe((r: any) => {
         this.user = r.payload;
         const cartId = localStorage.getItem('cartId');
-       
+        if(r.payload?.email)
         if (!cartId) {
           // create cart
-
+           
            this.cartService.create(r.payload.email).then(r=>r);
 
           // create Cart
@@ -83,4 +83,5 @@ export class HomeComponent implements OnInit {
   reDirect() {
     window.location.href = "/";
   }
+
 }

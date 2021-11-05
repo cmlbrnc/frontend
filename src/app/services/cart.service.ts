@@ -146,7 +146,7 @@ export class CartService {
   }
 
   private getCartId() {
-    return localStorage.getItem('cartId') as string
+    return localStorage.getItem('cartId') as string;
   }
 
   

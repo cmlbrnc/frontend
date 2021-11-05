@@ -9,7 +9,6 @@
     *ngIf="quantity === 0; else updateQuantity"
       class="btn btn-secondary btn-block" (click)="add(item)" >Add to Cart</button>
     
-
     <ng-template #updateQuantity >
       <app-item-quatity [quantity]="quantity"  [item]="item">
       </app-item-quatity>
