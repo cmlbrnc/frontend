@@ -1,0 +1,49 @@
+<nb-layout>
+
+  <nb-layout-header fixed>
+    
+    <h5 class="my-0 mr-md-auto font-weight-normal"><a class="btn" (click)="reDirect()">WhatNowTravel</a></h5>
+    <!-- <a class="p-2 text-dark" href="#">Features</a>
+      <a class="p-2 text-dark" href="#">Enterprise</a>
+      <a class="p-2 text-dark" href="#">Support</a>
+      <a class="p-2 text-dark" href="#">Pricing</a> -->
+    <nb-actions size="small">
+
+      <nb-action class="control-item"  routerLink="/cart"   >
+        <nb-action class="control-item p-0"
+                   icon="shopping-cart-outline"
+                   *ngIf="cart"
+                   
+                   ></nb-action><span class="badge badge-warning badge-pill">
+          {{cart?.quantity}}
+        </span>
+      </nb-action>
+
+      <nb-action class="user-action"
+                 *ngIf="user?.name">
+        <nb-user [nbContextMenu]="items"
+                 [name]="user?.name"
+                 [picture]="user?.picture">
+        </nb-user>
+      </nb-action>
+
+      <nb-action class="control-item"
+                 *ngIf="user?.name"> <a class="btn btn-outline-primary"
+           (click)="signOut()">Sign out</a></nb-action>
+      <nb-action class="control-item"
+                 *ngIf="!user?.name"> <a class="btn btn-outline-primary"
+           routerLink="/auth">Sign ın</a></nb-action>
+
+    </nb-actions>
+
+  </nb-layout-header>
+
+  <nb-layout-column>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+    <!-- Insert footer here -->
+  </nb-layout-footer>
+
+</nb-layout>
