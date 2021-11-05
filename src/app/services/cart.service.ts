@@ -78,7 +78,7 @@ export class CartService {
     } else  {
      await this.firestore.collection("host-card-infos").doc(this.getCartId()).collection('items').doc(item.id).set({
        quantity:cartItem.quantity+change,
-       price:parseInt(item.price),
+       price:parseFloat(item.price),
        name:item.name
      })
      this.updateCart()
@@ -88,7 +88,7 @@ export class CartService {
    }else {
     await this.firestore.collection("host-card-infos").doc(this.getCartId()).collection('items').doc(item.id).set({
       quantity:1,
-      price:parseInt(item.price),
+      price:parseFloat(item.price),
       name:item.name
     })
     this.updateCart()
